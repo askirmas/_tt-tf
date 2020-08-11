@@ -1,0 +1,17 @@
+{
+  "extends": "./template/tsconfig",
+  "exclude": [
+    "node_modules",
+    "cypress",
+    "template",
+    "ts-swiss",
+    "out"
+  ],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.js",
+    "**/*.jsx"
+  ]  
+}
