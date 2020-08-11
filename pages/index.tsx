@@ -1,6 +1,7 @@
 import {PureComponent, DetailedHTMLProps, InputHTMLAttributes} from 'react'
 import Card from '../components/Card'
 
+
 type tProps = {data: Record<string, tRecord>}
 type tFormButton = DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> & {
   "type": string
@@ -22,7 +23,8 @@ const {keys: $keys} = Object
   },
   {
     "type": "checkbox",
-    "form": ""
+    "form": "",
+    "value": "edit"
   }
 ]
 , submits = <>{submitsData.map(({value, type}) => <input {...{

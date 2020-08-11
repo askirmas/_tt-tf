@@ -14,9 +14,15 @@ function CardRender({children, ...data}: PropsWithChildren<tRecord>) {
     , defaultValue = data[property]
     , slotClass = `Card__${property}`
 
-    return readOnly
+    return property === "avatar" 
+    ? <img {...{
+      "className": slotClass,
+      "src": `./avatars/${defaultValue}`      
+    }}/>
+    : readOnly
     ? <div {...{
-      "className": slotClass
+      "className": slotClass,
+      "data-value": defaultValue
     }}>
 
     </div>

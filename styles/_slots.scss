@@ -1,0 +1,28 @@
+$slots--name: "name";
+$slots--avatar: "avatar";
+$slots--position: "position";
+$slots--id: "id";
+$slots--address: "address";
+$slots--company: "company";
+$slots--companyAddress: "companyAddress";
+$slots--location: "location";
+$slots--phone: "phone";
+
+$slots--submit: "submit";
+$slots--edit: "edit";
+$slots--delete: "delete";
+
+$slots: (
+  $slots--name,
+  $slots--avatar,
+  $slots--position,
+  $slots--id,
+  $slots--address,
+  $slots--company,
+  $slots--companyAddress,
+  $slots--location,
+  $slots--phone,
+  $slots--submit,
+  $slots--edit,
+  $slots--delete  
+);

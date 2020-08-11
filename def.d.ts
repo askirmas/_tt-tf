@@ -5,7 +5,7 @@ declare interface tRecord {
   "id": number
   "address": string
   "company": string
-  "companyAdress": string
+  "companyAddress": string
   "location": string
   "phone": string
 }

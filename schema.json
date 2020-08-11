@@ -17,7 +17,7 @@
         },
         "address": {"type": "string"},
         "company": {"type": "string"},
-        "companyAdress": {"type": "string"},
+        "companyAddress": {"type": "string"},
         "location": {"type": "string"},
         "phone": {
           "type": "string",
