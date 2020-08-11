@@ -1,0 +1,38 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "./template"
+		}
+	],
+	"settings": {
+		"deno.enable": false,
+		"typescript.tsdk": "./node_modules/typescript/lib",
+		"git-graph.dialog.merge.noFastForward": false,
+		"git-graph.dialog.rebase.ignoreDate": false,
+		"git-graph.graphStyle": "angular",
+		"git-graph.openToTheRepoOfTheActiveTextEditorDocument": true,
+		"git-graph.openRepoToHead": true,
+		"stylelint.validate": [
+			"css",
+			"html",
+			"less",
+			"markdown",
+			"postcss",
+			"sass",
+			"scss",
+			"source.css.styled",
+			"source.markdown.math",
+			"styled-css",
+			"sugarss",
+			"svelte",
+			"vue",
+			"vue-postcss",
+			"xml",
+			"xsl"
+		],
+		"stylelint.reportNeedlessDisables": true		
+	}
+}

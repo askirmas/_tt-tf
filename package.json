@@ -1,0 +1,34 @@
+{
+  "name": "test-",
+  "version": "0.0.0",
+  "description": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 0",
+    "postinstall": "npm run setup",
+    "setup": "git config include.path ../template/.gitconfig && ghw init"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/askirmas/test-.git"
+  },
+  "keywords": [],
+  "author": {
+    "name": "Andrii Kirmas",
+    "email": "kirmas@phystech.edu"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/askirmas/test-/issues"
+  },
+  "homepage": "https://github.com/askirmas/test-#readme",
+  "dependencies": {
+    "postcss-plugin-d-ts": "^0.6.0",
+    "postcss-preset-env": "^6.7.0"
+  },
+  "devDependencies": {
+    "@kirmas/configs": "file:template",
+    "@kirmas/template-cypress": "file:template/cypress",
+    "@kirmas/template-dev": "file:template/devDependencies",
+    "next": "^9.5.2"
+  }
+}
