@@ -25,6 +25,7 @@ body, #__next {
   font: inherit;
   pointer-events: none;
   background-color: transparent;
+  box-sizing: border-box;
 }
 
 .Card {
@@ -49,6 +50,8 @@ body, #__next {
   
 
   &__ {
+    $ctx: #{&};
+
     @each $slot in $slots {
       &#{$slot} {
         grid-area: #{$slot};
@@ -72,6 +75,27 @@ body, #__next {
 
     &#{$slots--company} {
       font-weight: #{$font-bold};
+    }
+
+    &#{$slots--submit} {
+      display: none;
+    }
+
+    &#{$slots--edit} {
+      &:checked ~ {
+        .Input {
+          pointer-events: initial;
+          border-bottom: 1px solid currentColor;
+        }
+        #{$ctx} {
+          &#{$slots--submit} {
+            display: initial;
+          }      
+          &#{$slots--delete} {
+            display: none;
+          }
+        }
+      }
     }
   }
 }
