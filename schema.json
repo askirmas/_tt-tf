@@ -11,18 +11,23 @@
       "properties": {
         "name": {"type": "string"},
         "position": {"type": "string"},
-        "id": {"type": "number"},
+        "id": {
+          "type": "number",
+          "readOnly": true
+        },
         "address": {"type": "string"},
         "company": {"type": "string"},
         "companyAdress": {"type": "string"},
         "location": {"type": "string"},
         "phone": {
           "type": "string",
+          "format": "tel",
           "pattern": "^[\\d\\(\\)\\+\\s\\-]+$"
         },
         "avatar": {
           "type": "string",
-          "format": "uri-reference"
+          "format": "uri-reference",
+          "readOnly": true
         }
       }
     }

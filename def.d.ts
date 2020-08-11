@@ -9,3 +9,10 @@ declare interface tRecord {
   "location": string
   "phone": string
 }
+
+declare type PrimitiveSchema = Partial<{
+  "type": string
+  "readOnly": boolean
+  "pattern": string
+  "format": string
+}>
