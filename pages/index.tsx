@@ -1,6 +1,6 @@
 import {PureComponent, DetailedHTMLProps, InputHTMLAttributes} from 'react'
 import Card from '../components/Card'
-
+import schema from "../schema.json"
 
 type tProps = {data: Record<string, tRecord>}
 type tFormButton = DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> & {
@@ -33,6 +33,8 @@ const {keys: $keys} = Object
   "key": value,
   value
 }}/>)}</>
+, {"definitions": {"tRecord": {"default": $default}}} = schema 
+, {"id": defaultId} = $default
 
 export default class Page extends PureComponent<tProps> {
   //@ts-ignore https://github.com/zeit/next.js/blob/d190f2e112bd4a767a21d1b0e9d61379d72ef1dc/packages/next/types/index.d.ts#L49
@@ -45,14 +47,19 @@ export default class Page extends PureComponent<tProps> {
   render() {
     const {data} = this.props
 
-    return <>{
-      $keys(data)
-      .map(id => <form {...{
-        "key": id,
-        "className": "Card"
-      }}>
-        <Card {...data[id]}>{submits}</Card>
-      </form>)
-    }</>
+    return <>
+      {
+        //@ts-ignore
+        [defaultId].concat($keys(data))
+        .map(id => <form {...{
+          "key": id,
+          "name": `${id}`,
+          "action": "#",
+          "className": `Card ${id !== defaultId ? '' : "Card--new"}`
+        }}>
+          <Card {...data[id] ?? $default}>{submits}</Card>
+        </form>)
+      }
+    </>
   }  
 }

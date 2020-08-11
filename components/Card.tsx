@@ -1,7 +1,7 @@
 import {memo, PropsWithChildren} from 'react'
 import schema from "../schema.json"
 
-const {definitions: {tRecord: {properties: recordSchema}}} = schema
+const {"definitions": {"tRecord": {"properties": recordSchema}}} = schema
 , {entries: $entries} = Object
 , Card = memo(CardRender)
 
@@ -34,6 +34,7 @@ function CardRender({children, ...data}: PropsWithChildren<tRecord>) {
       defaultValue,
       "name": property,
       "type": format ?? (type === "string" ? "text" : type),
+      "placeholder": property,
       pattern
     }}/>
   })

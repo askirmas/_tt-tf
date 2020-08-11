@@ -26,7 +26,13 @@ body, #__next {
   pointer-events: none;
   background-color: transparent;
   box-sizing: border-box;
+  outline: none;
+  border-bottom: 1px solid transparent;
 }
+.Input:focus-within {
+  border-bottom-width: 2px;
+}
+
 
 .Card {
   background-color: white;
@@ -47,7 +53,10 @@ body, #__next {
   $slots--company: "company";
   $slots--companyAdress: "companyAdress";
   $slots--location: "location";
-  
+
+  &--new {
+    order: 1;
+  }
 
   &__ {
     $ctx: #{&};
@@ -60,6 +69,7 @@ body, #__next {
 
     &#{$slots--avatar} {
       border-radius: 50%;
+      width: 100%;
     }
 
     &#{$slots--position} {
@@ -85,7 +95,7 @@ body, #__next {
       &:checked ~ {
         .Input {
           pointer-events: initial;
-          border-bottom: 1px solid currentColor;
+          border-bottom-color: currentColor;
         }
         #{$ctx} {
           &#{$slots--submit} {

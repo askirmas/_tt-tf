@@ -22,13 +22,24 @@
         "phone": {
           "type": "string",
           "format": "tel",
-          "pattern": "^[\\d\\(\\)\\+\\s\\-]+$"
+          "pattern": "^[\\d\\(\\)\\+\\s\\-]*$"
         },
         "avatar": {
           "type": "string",
           "format": "uri-reference",
           "readOnly": true
         }
+      },
+      "default": {
+        "name": "",
+        "avatar": "default.svg",
+        "position": "",
+        "id": -1,
+        "address": "",
+        "company": "",
+        "companyAddress": "",
+        "location": "",
+        "phone": ""
       }
     }
   }
