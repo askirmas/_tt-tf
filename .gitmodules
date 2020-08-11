@@ -1,6 +1,3 @@
 [submodule "template"]
 	path = template
-	url = git@github.com:askirmas/template.git
-[submodule "ts-swiss"]
-	path = ts-swiss
-	url = git@github.com:askirmas/ts-swiss.git
+	url = https://github.com/askirmas/template.git
