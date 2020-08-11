@@ -20,7 +20,7 @@ function CardRender({children, data, schema}: PropsWithChildren<tProps>) {
     return property === "avatar" 
     ? <img {...{
       "className": slotClass,
-      "src": `./avatars/${defaultValue}`      
+      "src": `./avatars/${defaultValue ?? 'default.svg'}`
     }}/>
     : readOnly
     ? <div {...{

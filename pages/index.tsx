@@ -3,6 +3,7 @@ import Card from '../components/Card'
 import schema from "../schema.json"
 
 type tProps = {data: Record<string, tRecord>}
+
 type tState = Partial<tProps["data"]>
 
 type tFormButton = DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> & {
@@ -37,18 +38,26 @@ export default class Page extends PureComponent<tProps, tState> {
   //@ts-ignore https://github.com/zeit/next.js/blob/d190f2e112bd4a767a21d1b0e9d61379d72ef1dc/packages/next/types/index.d.ts#L49
   static getInitialProps({query: {data}}: {query: {data: tRecord[]}}) {
     const props = {} as tProps["data"]
-    data.forEach(record => props[record.id] = record)
+    data.forEach(record => {
+      const {id} = record
+      props[id] = record
+
+    })
     return {data: props}
   }
 
+  lastId: number = defaultId
   state: tState = {}
 
+  constructor(props: tProps) {
+    super(props)
+    this.lastId = Math.max(...$keys(props.data).map(id => +id)) ?? defaultId
+  }
+
   onSubmit = (ev: FormEvent<HTMLFormElement>) => {
-    // const target = ev.target as HTMLFormElement
     ev.preventDefault()
     ev.stopPropagation()
 
-    // console.log(target, ev.currentTarget, [...new FormData(target as HTMLFormElement)])
     return false
   }
 
@@ -68,6 +77,8 @@ export default class Page extends PureComponent<tProps, tState> {
         this.setState({[id]: undefined})
         break
       case "submit":
+        if (!form.checkValidity())
+          return
         const data = {
           ...this.props.data[id],
           ...this.state[id]
@@ -77,7 +88,13 @@ export default class Page extends PureComponent<tProps, tState> {
         //@ts-ignore
         .forEach(([k, v]) => data[k] = v)
         
-        this.setState({[id]: data as tRecord})
+        this.setState({
+          [
+            id !== `${defaultId}`
+            ? id
+            : ++this.lastId
+          ]: data as tRecord
+        })
         break
       case "cancel":
         break
@@ -95,6 +112,7 @@ export default class Page extends PureComponent<tProps, tState> {
     "className": `Button Card__${value}`,
     "key": value,
     "name": value,
+    "tabIndex": value !== "delete" ? 0 : -1 ,
     value
   }}/>)}</>
 
@@ -112,7 +130,7 @@ export default class Page extends PureComponent<tProps, tState> {
         [defaultId].concat($keys(records))
         .map(id => {
           const isNew = id === defaultId
-          , data = isNew ? $default : records[id]
+          , data = isNew ? $default : records[id] as tRecord
           , formId = `${id}`
 
           return data && <form {...{
