@@ -9,8 +9,9 @@ $slots--location: "location";
 $slots--phone: "phone";
 
 $slots--submit: "submit";
-$slots--edit: "edit";
 $slots--delete: "delete";
+$slots--edit: "edit";
+$slots--cancel: "cancel";
 
 $slots: (
   $slots--name,
@@ -24,5 +25,6 @@ $slots: (
   $slots--phone,
   $slots--submit,
   $slots--edit,
+  $slots--cancel,
   $slots--delete  
 );

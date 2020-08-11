@@ -24,6 +24,10 @@ const {keys: $keys} = Object
     "value": "delete",
   },
   {
+    "type": "reset",
+    "value": "cancel",
+  },
+  {
     "type": "submit",
     "value": "submit"
   }

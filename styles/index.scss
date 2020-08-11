@@ -37,14 +37,14 @@ body, #__next {
   background-color: white;
   display: grid;
   grid-template-areas:
-    '#{$slots--avatar} #{$slots--name} . . . .'
-    '#{$slots--avatar} #{$slots--address} . . . .'
-    '#{$slots--avatar} #{$slots--company} . . . .'
-    '#{$slots--avatar} #{$slots--companyAddress} . . . .'
-    '#{$slots--avatar} #{$slots--location} . . . .'
-    '#{$slots--avatar} #{$slots--phone} . . . .'
-    '#{$slots--position} . . . . .'
-    '. . . #{$slots--submit} #{$slots--edit} #{$slots--delete}'
+    '#{$slots--avatar} #{$slots--name} . . . . .'
+    '#{$slots--avatar} #{$slots--address} . . . . .'
+    '#{$slots--avatar} #{$slots--company} . . . . .'
+    '#{$slots--avatar} #{$slots--companyAddress} . . . . .'
+    '#{$slots--avatar} #{$slots--location} . . . . .'
+    '#{$slots--avatar} #{$slots--phone} . . . . .'
+    '#{$slots--position} . . . . . .'
+    '. . . #{$slots--submit} #{$slots--cancel} #{$slots--edit} #{$slots--delete}'
   ;
 
   grid-template-columns: #{$avatar-size};
@@ -89,7 +89,8 @@ body, #__next {
           border-color: transparent;
         }
         #{$ctx} {
-          &#{$slots--submit} {
+          &#{$slots--submit},
+          &#{$slots--cancel} {
             display: none;
           }      
         }
