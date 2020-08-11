@@ -3,13 +3,13 @@
   "version": "0.0.0",
   "description": "",
   "scripts": {
+    "setup": "git config include.path ../template/.gitconfig && ghw init && git submodule update --init --recursive",
     "dev": "next",
     "start": "npm run build && next",
     "build": "npm run test",
     "test": "npm run compile",
     "compile": "next build && next export",
     "postinstall": "npm run setup",
-    "setup": "git config include.path ../template/.gitconfig && ghw init",
     "-lint/js": "eslint . --ext .js,.jsx,.ts,.tsx --fix --quiet",
     "-lint/css": "stylelint **/*.scss **/*.css --fix --quiet"
   },
