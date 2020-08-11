@@ -4,7 +4,7 @@
   "description": "",
   "scripts": {
     "dev": "next",
-    "build": "npm run test", 
+    "build": "npm run test",
     "test": "npm run compile",
     "compile": "next build && next export",
     "postinstall": "npm run setup",
@@ -27,6 +27,7 @@
   },
   "homepage": "https://github.com/askirmas/test-#readme",
   "dependencies": {
+    "material-components-web": "^7.0.0",
     "postcss-plugin-d-ts": "^0.6.0",
     "postcss-preset-env": "^6.7.0",
     "react": "^16.13.1",
