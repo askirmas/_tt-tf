@@ -13,6 +13,11 @@ type tFormButton = DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTML
 const {keys: $keys} = Object
 , submitsData: tFormButton[] = [
   {
+    "type": "checkbox",
+    "form": "",
+    "value": "edit"
+  }, 
+  {
     "type": "submit",
     "value": "delete",
 
@@ -21,11 +26,6 @@ const {keys: $keys} = Object
     "type": "submit",
     "value": "submit"
   },
-  {
-    "type": "checkbox",
-    "form": "",
-    "value": "edit"
-  }
 ]
 , submits = <>{submitsData.map(({value, type}) => <input {...{
   type,

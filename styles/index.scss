@@ -1,21 +1,44 @@
 @import "slots";
 
 $avatar-size: 128px;
+$font-bold: 600;
+
+body, #__next {
+  margin: 0;
+  overflow: hidden;
+}
+#__next {
+  width: 100vw;
+  height: 100vh;
+  background-color: lightgrey;
+  display: grid;
+  overflow-y: overlay;
+  grid-template-columns: repeat(auto-fill, 600px);
+  grid-auto-rows: 300px;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.Input {
+  border: none;
+  padding: 0;
+  font: inherit;
+  pointer-events: none;
+  background-color: transparent;
+}
 
 .Card {
-  width: 300px;
-  height: 300px;
-
+  background-color: white;
   display: grid;
   grid-template-areas:
-    '#{$slots--avatar} #{$slots--name} . . .'
-    '#{$slots--avatar} #{$slots--address} . . .'
-    '#{$slots--avatar} #{$slots--company} . . .'
-    '#{$slots--avatar} #{$slots--companyAddress} . . .'
-    '#{$slots--avatar} #{$slots--location} . . .'
-    '#{$slots--avatar} #{$slots--phone} . . .'
-    '#{$slots--position} . . . .'
-    '. . #{$slots--submit} #{$slots--edit} #{$slots--delete}'
+    '#{$slots--avatar} #{$slots--name} . . . .'
+    '#{$slots--avatar} #{$slots--address} . . . .'
+    '#{$slots--avatar} #{$slots--company} . . . .'
+    '#{$slots--avatar} #{$slots--companyAddress} . . . .'
+    '#{$slots--avatar} #{$slots--location} . . . .'
+    '#{$slots--avatar} #{$slots--phone} . . . .'
+    '#{$slots--position} . . . . .'
+    '. . . #{$slots--submit} #{$slots--edit} #{$slots--delete}'
   ;
 
   grid-template-columns: #{$avatar-size};
@@ -34,6 +57,21 @@ $avatar-size: 128px;
 
     &#{$slots--avatar} {
       border-radius: 50%;
+    }
+
+    &#{$slots--position} {
+      text-align: center;
+      font-weight: #{$font-bold};
+      color: grey;
+    }
+
+    &#{$slots--name} {
+      font-size: 1.3em;
+      font-weight: #{$font-bold};
+    }
+
+    &#{$slots--company} {
+      font-weight: #{$font-bold};
     }
   }
 }

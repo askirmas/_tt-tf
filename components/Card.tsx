@@ -29,6 +29,8 @@ function CardRender({children, ...data}: PropsWithChildren<tRecord>) {
     : <input {...{
       key,
       "className": `Input ${slotClass}`,
+      //TODO Make that script-less stuff
+      "tabIndex": -1,
       defaultValue,
       "name": property,
       "type": format ?? (type === "string" ? "text" : type),
