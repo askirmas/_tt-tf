@@ -54,7 +54,6 @@ body, #__next {
   $slots--location: "location";
 
   &__ {
-    $ctx: #{&};
 
     @each $slot in $slots {
       &#{$slot} {
@@ -81,28 +80,27 @@ body, #__next {
     &#{$slots--company} {
       font-weight: #{$font-bold};
     }
+  }
 
-    &#{$slots--edit} {
-      &:not(:checked) ~ {
-        .Input {
-          pointer-events: none;
-          border-color: transparent;
-        }
-        #{$ctx} {
-          &#{$slots--submit},
-          &#{$slots--cancel} {
-            display: none;
-          }      
-        }
-      }
-      &:checked ~ {
-        #{$ctx} {
-          &#{$slots--delete} {
-            display: none;
-          }
-        }
-      }
-      &--new:focus {
+
+  $ctx: #{&};
+  &:not(:focus-within) {
+    .Input {
+      pointer-events: none;
+      border-color: transparent;
+    }
+    #{$ctx}__ {
+      &#{$slots--submit},
+      &#{$slots--cancel} {
+        display: none;
+      }      
+    }
+  }
+
+  &:focus-within {
+    #{$ctx}__ {
+      &#{$slots--delete},
+      &#{$slots--edit}:not(:focus-within) {
         display: none;
       }
     }
@@ -117,4 +115,8 @@ body, #__next {
       }
     }
   }
+}
+
+.Button {
+  transition-property: display;
 }

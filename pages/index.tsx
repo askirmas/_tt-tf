@@ -15,11 +15,6 @@ type tFormButton = DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTML
 const {keys: $keys} = Object
 , submitsData: tFormButton[] = [
   {
-    "type": "checkbox",
-    "form": "",
-    "value": "edit"
-  }, 
-  {
     "type": "submit",
     "value": "delete",
   },
@@ -71,7 +66,7 @@ export default class Page extends PureComponent<tProps, tState> {
     switch (action) {
       case "delete": 
         this.setState({[id]: undefined})
-      break
+        break
       case "submit":
         const data = {
           ...this.props.data[id],
@@ -83,8 +78,16 @@ export default class Page extends PureComponent<tProps, tState> {
         .forEach(([k, v]) => data[k] = v)
         
         this.setState({[id]: data as tRecord})
-      break
+        break
+      case "cancel":
+        break
+        
+      default:
+        return
     }
+
+    //@ts-ignore
+    document.activeElement?.blur?.()
   }
 
   actions = <>{submitsData.map(({value, type}) => <input {...{
@@ -110,27 +113,26 @@ export default class Page extends PureComponent<tProps, tState> {
         .map(id => {
           const isNew = id === defaultId
           , data = isNew ? $default : records[id]
+          , formId = `${id}`
 
           return data && <form {...{
             "method": "POST",
             "key": id,
-            "name": `${id}`,
+            "id": formId,
+            "name": formId,
             "action": "#",
             "className": `Card ${!isNew ? '' : "Card--new"}`,
-            "tabIndex": isNew ? 0 : -1,
+            "tabIndex": 0,
             onSubmit,
             "onClick": clickHandler
           }}>
             <Card {...{
               data,
               "schema": recordSchema
-            }}>{
-              !isNew
-              ? actions
-              : <>
-                <label htmlFor="__next" className="Button Card__edit Card__edit--new" tabIndex={0}>cancel</label>
-              </>
-            }</Card>
+            }}>
+              {actions}
+              <label htmlFor={formId} className="Button Card__edit">edit</label>
+            </Card>
           </form>
         })
       }
