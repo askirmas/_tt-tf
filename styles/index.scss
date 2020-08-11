@@ -23,11 +23,10 @@ body, #__next {
   border: none;
   padding: 0;
   font: inherit;
-  pointer-events: none;
   background-color: transparent;
   box-sizing: border-box;
   outline: none;
-  border-bottom: 1px solid transparent;
+  border-bottom: 1px solid currentColor;
 }
 .Input:focus-within {
   border-bottom-width: 2px;
@@ -53,10 +52,6 @@ body, #__next {
   $slots--company: "company";
   $slots--companyAdress: "companyAdress";
   $slots--location: "location";
-
-  &--new {
-    order: 1;
-  }
 
   &__ {
     $ctx: #{&};
@@ -87,24 +82,37 @@ body, #__next {
       font-weight: #{$font-bold};
     }
 
-    &#{$slots--submit} {
-      display: none;
-    }
-
     &#{$slots--edit} {
-      &:checked ~ {
+      &:not(:checked) ~ {
         .Input {
-          pointer-events: initial;
-          border-bottom-color: currentColor;
+          pointer-events: none;
+          border-color: transparent;
         }
         #{$ctx} {
           &#{$slots--submit} {
-            display: initial;
+            display: none;
           }      
+        }
+      }
+      &:checked ~ {
+        #{$ctx} {
           &#{$slots--delete} {
             display: none;
           }
         }
+      }
+      &--new:focus {
+        display: none;
+      }
+    }
+  }
+
+  &--new {
+    order: 1;
+    &:not(:focus-within) {
+      background-color: green;
+      * {
+        display: none;
       }
     }
   }

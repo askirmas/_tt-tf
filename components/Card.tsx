@@ -1,14 +1,17 @@
 import {memo, PropsWithChildren} from 'react'
-import schema from "../schema.json"
 
-const {"definitions": {"tRecord": {"properties": recordSchema}}} = schema
-, {entries: $entries} = Object
+type tProps = {
+  data: tRecord
+  schema: Record<keyof tRecord, PrimitiveSchema>
+}
+
+const {entries: $entries} = Object
 , Card = memo(CardRender)
 
 export default Card 
 
-function CardRender({children, ...data}: PropsWithChildren<tRecord>) {
-  const slots = ($entries(recordSchema) as [keyof typeof recordSchema, PrimitiveSchema][])
+function CardRender({children, data, schema}: PropsWithChildren<tProps>) {
+  const slots = ($entries(schema) as [keyof typeof schema, PrimitiveSchema][])
   .map(([property, {type, readOnly, pattern, format}]) => {
     const key = property
     , defaultValue = data[property]

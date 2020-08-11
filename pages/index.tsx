@@ -20,20 +20,22 @@ const {keys: $keys} = Object
   {
     "type": "submit",
     "value": "delete",
-
   },
   {
     "type": "submit",
     "value": "submit"
-  },
+  }
 ]
-, submits = <>{submitsData.map(({value, type}) => <input {...{
+, actions = <>{submitsData.map(({value, type}) => <input {...{
   type,
   "className": `Button Card__${value}`,
   "key": value,
   value
 }}/>)}</>
-, {"definitions": {"tRecord": {"default": $default}}} = schema 
+, {"definitions": {"tRecord": {
+  "default": $default,
+  "properties": recordSchema
+}}} = schema 
 , {"id": defaultId} = $default
 
 export default class Page extends PureComponent<tProps> {
@@ -51,14 +53,29 @@ export default class Page extends PureComponent<tProps> {
       {
         //@ts-ignore
         [defaultId].concat($keys(data))
-        .map(id => <form {...{
-          "key": id,
-          "name": `${id}`,
-          "action": "#",
-          "className": `Card ${id !== defaultId ? '' : "Card--new"}`
-        }}>
-          <Card {...data[id] ?? $default}>{submits}</Card>
-        </form>)
+        .map(id => {
+          const isNew = id === defaultId
+
+          return <form {...{
+            "method": "POST",
+            "key": id,
+            "name": `${id}`,
+            "action": "#",
+            "className": `Card ${!isNew ? '' : "Card--new"}`,
+            "tabIndex": isNew ? 0 : -1
+          }}>
+            <Card {...{
+              "data": isNew ? $default : data[id],
+              "schema": recordSchema
+            }}>{
+              !isNew
+              ? actions
+              : <>
+                <label htmlFor="__next" className="Button Card__edit Card__edit--new" tabIndex={0}>cancel</label>
+              </>
+            }</Card>
+          </form>
+        })
       }
     </>
   }  
