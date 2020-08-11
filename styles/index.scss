@@ -2,7 +2,9 @@
 
 $avatar-size: 128px;
 $font-bold: 600;
-
+:root {
+  font-size: 14px;
+}
 body, #__next {
   margin: 0;
   overflow: hidden;
@@ -49,6 +51,7 @@ body, #__next {
   box-sizing: border-box;
   outline: none;
   border-bottom: 1px solid currentColor;
+  width: 100%;
 }
 .Input:focus-within {
   border-bottom-width: 2px;
@@ -60,17 +63,16 @@ body, #__next {
   padding: 1rem;
   background-color: white;
   display: grid;
-  column-gap: 1rem;
-  grid-template-columns: #{$avatar-size} 1fr repeat(4, min-content);
+  grid-template-columns: min-content 1rem 1fr repeat(4, min-content);
   grid-template-areas:
-    '#{$slots--avatar} #{$slots--name} . . . .'
-    '#{$slots--avatar} #{$slots--address} . . . .'
-    '#{$slots--avatar} #{$slots--company} . . . .'
-    '#{$slots--avatar} #{$slots--companyAddress} . . . .'
-    '#{$slots--avatar} #{$slots--location} . . . .'
-    '#{$slots--avatar} #{$slots--phone} . . . .'
-    '#{$slots--position} . . . . .'
-    '. . #{$slots--save} #{$slots--cancel} #{$slots--edit} #{$slots--delete}'
+    '#{$slots--avatar}   . #{$slots--name}           #{$slots--name}           #{$slots--name}           #{$slots--name}           #{$slots--name}          '
+    '#{$slots--avatar}   . #{$slots--address}        #{$slots--address}        #{$slots--address}        #{$slots--address}        #{$slots--address}       '
+    '#{$slots--avatar}   . #{$slots--company}        #{$slots--company}        #{$slots--company}        #{$slots--company}        #{$slots--company}       '
+    '#{$slots--avatar}   . #{$slots--companyAddress} #{$slots--companyAddress} #{$slots--companyAddress} #{$slots--companyAddress} #{$slots--companyAddress}'
+    '#{$slots--avatar}   . #{$slots--location}       #{$slots--location}       #{$slots--location}       #{$slots--location}       #{$slots--location}      '
+    '#{$slots--avatar}   . #{$slots--phone}          #{$slots--phone}          #{$slots--phone}          #{$slots--phone}          #{$slots--phone}         '
+    '#{$slots--position} . .                         .                         .                         .                         .                        '
+    '.                   . .                         #{$slots--save}           #{$slots--cancel}         #{$slots--edit}           #{$slots--delete}        '
   ;
 
 
@@ -88,7 +90,7 @@ body, #__next {
 
     &#{$slots--avatar} {
       border-radius: 50%;
-      width: 100%;
+      width: #{$avatar-size};
     }
 
     &#{$slots--position} {
