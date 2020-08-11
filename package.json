@@ -39,5 +39,8 @@
     "@kirmas/template-dev": "file:template/devDependencies",
     "@types/react": "^16.9.46",
     "next": "^9.5.2"
+  },
+  "engines": {
+    "node": "^12"
   }
 }
