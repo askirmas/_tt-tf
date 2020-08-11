@@ -4,6 +4,7 @@
   "description": "",
   "scripts": {
     "dev": "next",
+    "start": "npm run build && next",
     "build": "npm run test",
     "test": "npm run compile",
     "compile": "next build && next export",
