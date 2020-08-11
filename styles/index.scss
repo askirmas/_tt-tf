@@ -19,6 +19,13 @@ body, #__next {
   justify-content: center;
 }
 
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/materialicons/v54/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2) format('woff2');
+}
+
 .Input {
   border: none;
   padding: 0;
@@ -35,20 +42,21 @@ body, #__next {
 
 .Card {
   margin: 1rem;
+  padding: 1rem;
   background-color: white;
   display: grid;
+  grid-template-columns: #{$avatar-size} 1fr repeat(4, min-content);
   grid-template-areas:
-    '#{$slots--avatar} #{$slots--name} . . . . .'
-    '#{$slots--avatar} #{$slots--address} . . . . .'
-    '#{$slots--avatar} #{$slots--company} . . . . .'
-    '#{$slots--avatar} #{$slots--companyAddress} . . . . .'
-    '#{$slots--avatar} #{$slots--location} . . . . .'
-    '#{$slots--avatar} #{$slots--phone} . . . . .'
-    '#{$slots--position} . . . . . .'
-    '. . . #{$slots--submit} #{$slots--cancel} #{$slots--edit} #{$slots--delete}'
+    '#{$slots--avatar} #{$slots--name} . . . .'
+    '#{$slots--avatar} #{$slots--address} . . . .'
+    '#{$slots--avatar} #{$slots--company} . . . .'
+    '#{$slots--avatar} #{$slots--companyAddress} . . . .'
+    '#{$slots--avatar} #{$slots--location} . . . .'
+    '#{$slots--avatar} #{$slots--phone} . . . .'
+    '#{$slots--position} . . . . .'
+    '. . #{$slots--save} #{$slots--cancel} #{$slots--edit} #{$slots--delete}'
   ;
 
-  grid-template-columns: #{$avatar-size};
 
   $slots--company: "company";
   $slots--companyAdress: "companyAdress";
@@ -91,7 +99,7 @@ body, #__next {
       border-color: transparent;
     }
     #{$ctx}__ {
-      &#{$slots--submit},
+      &#{$slots--save},
       &#{$slots--cancel} {
         display: none;
       }      
@@ -110,7 +118,10 @@ body, #__next {
   &--new {
     order: 1;
     &:not(:focus-within) {
-      background-color: green;
+      background-image: url(https://fonts.gstatic.com/s/i/materialicons/add_box/v6/24px.svg);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 4rem;
       * {
         display: none;
       }
@@ -120,4 +131,25 @@ body, #__next {
 
 .Button {
   transition-property: display;
+
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+
+  border: none;
+  background-color: transparent;
+
+  font-size: 1rem;
+  height: 1em;
+  margin: 0.25em;
 }
+

@@ -17,15 +17,18 @@ const {keys: $keys} = Object
 , submitsData: tFormButton[] = [
   {
     "type": "submit",
+    "name": "delete",
     "value": "delete",
   },
   {
     "type": "reset",
-    "value": "cancel",
+    "name": "cancel",
+    "value": "clear",
   },
   {
     "type": "submit",
-    "value": "submit"
+    "name": "save",
+    "value": "check"
   }
 ]
 , {"definitions": {"tRecord": {
@@ -76,7 +79,7 @@ export default class Page extends PureComponent<tProps, tState> {
       case "delete": 
         this.setState({[id]: undefined})
         break
-      case "submit":
+      case "save":
         if (!form.checkValidity())
           return
         const data = {
@@ -107,11 +110,11 @@ export default class Page extends PureComponent<tProps, tState> {
     document.activeElement?.blur?.()
   }
 
-  actions = <>{submitsData.map(({value, type}) => <input {...{
+  actions = <>{submitsData.map(({value, type, name}) => <input {...{
     type,
-    "className": `Button Card__${value}`,
+    "className": `Button Card__${name}`,
     "key": value,
-    "name": value,
+    name,
     "tabIndex": value !== "delete" ? 0 : -1 ,
     value
   }}/>)}</>

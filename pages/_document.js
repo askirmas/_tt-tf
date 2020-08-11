@@ -20,6 +20,7 @@ export default class extends Document {
           // eslint-disable-next-line max-len
           content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi"
         />
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"></link>
         <meta charSet="utf-8"/>
       </Head>
       <body>

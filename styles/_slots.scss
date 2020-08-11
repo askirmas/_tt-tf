@@ -8,7 +8,7 @@ $slots--companyAddress: "companyAddress";
 $slots--location: "location";
 $slots--phone: "phone";
 
-$slots--submit: "submit";
+$slots--save: "save";
 $slots--delete: "delete";
 $slots--edit: "edit";
 $slots--cancel: "cancel";
@@ -23,7 +23,7 @@ $slots: (
   $slots--companyAddress,
   $slots--location,
   $slots--phone,
-  $slots--submit,
+  $slots--save,
   $slots--edit,
   $slots--cancel,
   $slots--delete  
