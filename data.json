@@ -1,6 +1,7 @@
 [
   {
     "name": "John Smith",
+    "avatar": "./avatars/john-smith.jpg",
     "position": "Graphics designer",
     "id": 0,
     "address": "Riviera State 32/106",
@@ -11,6 +12,7 @@
   },
   {
     "name": "Alex Johnatan",
+    "avatar": "./avatars/alex jonathan.jpg",
     "position": "CEO",
     "id": 1,
     "address": "Riviera State 32/106",
@@ -21,6 +23,7 @@
   },
   {  
     "name": "Monica Smith",
+    "avatar": "./avatars/monica smith.jpg",
     "position": "Marketing manager",
     "id": 2,
     "address": "Riviera State 32/106",
@@ -31,6 +34,7 @@
   },
   {  
     "name": "Michael Zimber",
+    "avatar": "./avatars/michael zimber.jpg",
     "position": "Sales manager",
     "id": 3,
     "address": "Riviera State 32/106",
@@ -41,6 +45,7 @@
   },
   {  
     "name": "Sandra Smith",
+    "avatar": "./avatars/sandra smith.jpg",
     "position": "Graphics designer",
     "id": 4,
     "address": "Riviera State 32/106",
@@ -51,6 +56,7 @@
   },
   {  
     "name": "Janet Carton",
+    "avatar": "./avatars/janeth carton.jpg",
     "position": "Graphics designer",
     "id": 5,
     "address": "Riviera State 32/106",
@@ -61,6 +67,7 @@
   },
   {  
     "name": "Alex Johnatan",
+    "avatar": "./avatars/alex jonathan.jpg",
     "position": "CEO",
     "id": 6,
     "address": "Riviera State 32/106",
@@ -71,6 +78,7 @@
   },
   {  
     "name": "John Smith",
+    "avatar": "./avatars/john-smith.jpg",
     "position": "Graphics designer",
     "id": 7,
     "address": "Riviera State 32/106",

@@ -1,5 +1,6 @@
 declare interface tRecord {
   "name": string
+  "avatar": string
   "position": string
   "id": number
   "address": string
