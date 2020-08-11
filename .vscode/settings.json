@@ -12,6 +12,12 @@
       ],
       "url": "https://askirmas.github.io/jest.schema.json"
     },
+    {
+      "fileMatch": [
+        "data.json"
+      ],
+      "url": "./schema.json"
+    }
   ],
   "cSpell.words": [
     "aggregatable",

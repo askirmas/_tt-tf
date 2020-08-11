@@ -1,0 +1,82 @@
+[
+  {
+    "name": "John Smith",
+    "position": "Graphics designer",
+    "id": 0,
+    "address": "Riviera State 32/106",
+    "company": "Twitter, Inc.",
+    "companyAdress": "Folsom Ave, Suite 600",
+    "location": "San Francisco, CA 94107",
+    "phone": "(123) 456-7890"
+  },
+  {
+    "name": "Alex Johnatan",
+    "position": "CEO",
+    "id": 1,
+    "address": "Riviera State 32/106",
+    "company": "Twitter, Inc.",
+    "companyAdress": "Folsom Ave, Suite 600",
+    "location": "San Francisco, CA 94107",
+    "phone": "(123) 456-7890"
+  },
+  {  
+    "name": "Monica Smith",
+    "position": "Marketing manager",
+    "id": 2,
+    "address": "Riviera State 32/106",
+    "company": "Twitter, Inc.",
+    "companyAdress": "Folsom Ave, Suite 600",
+    "location": "San Francisco, CA 94107",
+    "phone": "(123) 456-7890"
+  },
+  {  
+    "name": "Michael Zimber",
+    "position": "Sales manager",
+    "id": 3,
+    "address": "Riviera State 32/106",
+    "company": "Twitter, Inc.",
+    "companyAdress": "Folsom Ave, Suite 600",
+    "location": "San Francisco, CA 94107",
+    "phone": "(123) 456-7890"
+  },
+  {  
+    "name": "Sandra Smith",
+    "position": "Graphics designer",
+    "id": 4,
+    "address": "Riviera State 32/106",
+    "company": "Twitter, Inc.",
+    "companyAdress": "Folsom Ave, Suite 600",
+    "location": "San Francisco, CA 94107",
+    "phone": "(123) 456-7890"
+  },
+  {  
+    "name": "Janet Carton",
+    "position": "Graphics designer",
+    "id": 5,
+    "address": "Riviera State 32/106",
+    "company": "Twitter, Inc.",
+    "companyAdress": "Folsom Ave, Suite 600",
+    "location": "San Francisco, CA 94107",
+    "phone": "(123) 456-7890"
+  },
+  {  
+    "name": "Alex Johnatan",
+    "position": "CEO",
+    "id": 6,
+    "address": "Riviera State 32/106",
+    "company": "Twitter, Inc.",
+    "companyAdress": "Folsom Ave, Suite 600",
+    "location": "San Francisco, CA 94107",
+    "phone": "(123) 456-7890"
+  },
+  {  
+    "name": "John Smith",
+    "position": "Graphics designer",
+    "id": 7,
+    "address": "Riviera State 32/106",
+    "company": "Twitter, Inc.",
+    "companyAdress": "Folsom Ave, Suite 600",
+    "location": "San Francisco, CA 94107",
+    "phone": "(123) 456-7890"
+  }
+]
