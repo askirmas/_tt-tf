@@ -9,7 +9,9 @@
     "build": "npm run test",
     "test": "npm run compile",
     "compile": "next build && next export",
+    "postcompile": "touch out/.nojekyll",
     "postinstall": "npm run setup",
+    "deploy": "gh-pages --dist out --remote origin2 --dotfiles",
     "-lint/js": "eslint . --ext .js,.jsx,.ts,.tsx --fix --quiet",
     "-lint/css": "stylelint **/*.scss **/*.css --fix --quiet"
   },
@@ -40,6 +42,7 @@
     "@kirmas/template-cypress": "file:template/cypress",
     "@kirmas/template-dev": "file:template/devDependencies",
     "@types/react": "^16.9.46",
+    "gh-pages": "^3.1.0",
     "next": "^9.5.2"
   },
   "engines": {

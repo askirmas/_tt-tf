@@ -7,5 +7,7 @@ const data = require("./data.json")
 })
 
 module.exports = {
-  exportPathMap
+  exportPathMap,
+  assetPrefix: "./",
+  // basePath: "."
 }
